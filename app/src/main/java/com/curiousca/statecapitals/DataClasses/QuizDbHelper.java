@@ -33,6 +33,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 QuestionsTable.COLUMN_OPTION1 + " TEXT, " +
                 QuestionsTable.COLUMN_OPTION2 + " TEXT, " +
                 QuestionsTable.COLUMN_OPTION3 + " TEXT, " +
+                QuestionsTable.COLUMN_OPTION4 + " TEXT, " +
                 QuestionsTable.COLUMN_ANSWER_NR + " INTEGER " +
                 ")";
 
@@ -49,16 +50,18 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
     private void fillQuestionsTable(){
-        Question q1 = new Question("A is correct", "A", "B", "C", 1);
+        Question q1 = new Question("The capital of North Carolina is...?", "Wilmington", "Charlotte", "Asheville","Raleigh", 4);
         addQuestion(q1);
-        Question q2 = new Question("B is correct", "A", "B", "C", 2);
+        Question q2 = new Question("Michigan's capital is...?", "Lansing", "Grand Rapids", "Kalamazoo","Detroit", 1);
         addQuestion(q2);
-        Question q3 = new Question("C is correct", "A", "B", "C", 3);
+        Question q3 = new Question("The capital of North Dakota is...?", "Fargo", "Minot", "Bismark","Williston", 3);
         addQuestion(q3);
-        Question q4 = new Question("Texas' state capital is:", "Austin", "Houston", "Dallas", 1);
+        Question q4 = new Question("Texas' state capital is:", "San Antonio", "Houston", "Dallas","Austin", 4);
         addQuestion(q4);
-        Question q5 = new Question("Georgia's capital is which city?", "Savanna", "Atlanta", "Perry", 2);
+        Question q5 = new Question("Georgia's capital is which city?", "Savanna", "Atlanta", "Perry","Augusta", 2);
         addQuestion(q5);
+        Question q6 = new Question("Nevada's capital is which city?", "Las Vegas", "Carson City", "Reno","Fallon", 2);
+        addQuestion(q6);
 
     }
 
@@ -68,6 +71,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         contentValues.put(QuestionsTable.COLUMN_OPTION1, question.getOption1());
         contentValues.put(QuestionsTable.COLUMN_OPTION2, question.getOption2());
         contentValues.put(QuestionsTable.COLUMN_OPTION3, question.getOption3());
+        contentValues.put(QuestionsTable.COLUMN_OPTION4, question.getOption4());
         contentValues.put(QuestionsTable.COLUMN_ANSWER_NR, question.getAnswerNr());
         database.insert(QuestionsTable.TABLE_NAME, null, contentValues);
     }
@@ -85,6 +89,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 question.setOption1(cursor.getString(cursor.getColumnIndex(QuestionsTable.COLUMN_OPTION1)));
                 question.setOption2(cursor.getString(cursor.getColumnIndex(QuestionsTable.COLUMN_OPTION2)));
                 question.setOption3(cursor.getString(cursor.getColumnIndex(QuestionsTable.COLUMN_OPTION3)));
+                question.setOption4(cursor.getString(cursor.getColumnIndex(QuestionsTable.COLUMN_OPTION4)));
                 question.setAnswerNr(cursor.getInt(cursor.getColumnIndex(QuestionsTable.COLUMN_ANSWER_NR)));
                 questionList.add(question);
             }while (cursor.moveToNext());

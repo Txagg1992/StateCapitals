@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="68dp"
-        android:text="This is a question\n This another question\nThis is also another question"
+        android:text="This is a question"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textColor="#000000"
@@ -88,6 +88,12 @@
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:text="Option 3" />
+        <RadioButton
+            android:id="@+id/radio_button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="Option 4" />
     </RadioGroup>
 
     <Button

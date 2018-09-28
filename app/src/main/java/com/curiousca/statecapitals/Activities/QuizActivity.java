@@ -28,6 +28,7 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton rButton1;
     private RadioButton rButton2;
     private RadioButton rButton3;
+    private RadioButton rButton4;
     private Button buttonConfirmNext;
 
     private ColorStateList textColorDefaultRButton;
@@ -53,6 +54,7 @@ public class QuizActivity extends AppCompatActivity {
         rButton1 = findViewById(R.id.radio_button1);
         rButton2 = findViewById(R.id.radio_button2);
         rButton3 = findViewById(R.id.radio_button3);
+        rButton4 = findViewById(R.id.radio_button4);
         buttonConfirmNext = findViewById(R.id.button_confirm_next);
 
         textColorDefaultRButton = rButton1.getTextColors();
@@ -68,7 +70,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (! answered){
-                    if (rButton1.isChecked() || rButton2.isChecked() || rButton3.isChecked()){
+                    if (rButton1.isChecked() || rButton2.isChecked() || rButton3.isChecked() ||rButton4.isChecked()){
                         checkAnswer();
                     }else{
                         Toast.makeText(QuizActivity.this, "Please select an answer.", Toast.LENGTH_LONG).show();
@@ -87,6 +89,8 @@ public class QuizActivity extends AppCompatActivity {
         rButton2.setTextSize(24);
         rButton3.setTextColor(textColorDefaultRButton);
         rButton3.setTextSize(24);
+        rButton4.setTextColor(textColorDefaultRButton);
+        rButton4.setTextSize(24);
         radioGroup.clearCheck();
 
         if (questionCounter < questionCountTotal){
@@ -96,6 +100,7 @@ public class QuizActivity extends AppCompatActivity {
             rButton1.setText(currentQuestion.getOption1());
             rButton2.setText(currentQuestion.getOption2());
             rButton3.setText(currentQuestion.getOption3());
+            rButton4.setText(currentQuestion.getOption4());
 
             questionCounter ++;
             textViewQuestionCount.setText("Question: " + questionCounter + "/" + questionCountTotal);
@@ -125,6 +130,7 @@ public class QuizActivity extends AppCompatActivity {
         rButton1.setTextColor(Color.RED);
         rButton2.setTextColor(Color.RED);
         rButton3.setTextColor(Color.RED);
+        rButton4.setTextColor(Color.RED);
 
         switch (currentQuestion.getAnswerNr()){
             case 1:
@@ -141,6 +147,11 @@ public class QuizActivity extends AppCompatActivity {
                 rButton3.setTextColor(Color.GREEN);
                 rButton3.setTextSize(36);
                 textViewQuestion.setText(currentQuestion.getOption3() + " is correct.");
+                break;
+            case 4:
+                rButton4.setTextColor(Color.GREEN);
+                rButton4.setTextSize(36);
+                textViewQuestion.setText(currentQuestion.getOption4() + " is correct.");
                 break;
         }
 
