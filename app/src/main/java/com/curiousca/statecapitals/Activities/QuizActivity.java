@@ -1,5 +1,6 @@
 package com.curiousca.statecapitals.Activities;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
+
+    public static final String EXTRA_SCORE = "extraScore";
 
     private TextView textViewQuestion;
     private TextView textViewScore;
@@ -40,6 +43,8 @@ public class QuizActivity extends AppCompatActivity {
 
     private int score;
     private boolean answered;
+
+    private long backPressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,6 +168,21 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void finishQuiz(){
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra(EXTRA_SCORE, score);
+        setResult(RESULT_OK, resultIntent);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (backPressedTime + 2000 > System.currentTimeMillis()){
+            finishQuiz();
+        }else {
+            Toast.makeText(this, "Press back button again to exit.", Toast.LENGTH_SHORT).show();
+        }
+
+        backPressedTime = System.currentTimeMillis();
     }
 }
