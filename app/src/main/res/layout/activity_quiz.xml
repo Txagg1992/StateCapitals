@@ -16,6 +16,7 @@
         android:layout_marginTop="8dp"
         android:text="Score: 0"
         android:textColor="#ffffff"
+        android:freezesText="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +28,7 @@
         android:layout_marginTop="8dp"
         android:text="Question 1/ x"
         android:textColor="#ffffff"
+        android:freezesText="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_view_score" />
 
@@ -38,6 +40,7 @@
         android:layout_marginTop="8dp"
         android:text="00:30"
         android:textColor="#ffffff"
+        android:freezesText="true"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,16 +61,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="8dp"
+        android:freezesText="true"
         android:text="This is a question"
         android:textAlignment="center"
-        android:textSize="24sp"
         android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/button_confirm_next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_countdown"
         app:layout_constraintVertical_bias="0.0" />
 
     <RadioGroup
@@ -88,27 +91,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="Option 1" />
+            android:text="Option 1"
+            android:freezesText="true"/>
 
         <RadioButton
             android:id="@+id/radio_button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="Option 2" />
+            android:text="Option 2"
+            android:freezesText="true"/>
 
         <RadioButton
             android:id="@+id/radio_button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="Option 3" />
+            android:text="Option 3"
+            android:freezesText="true"/>
         <RadioButton
             android:id="@+id/radio_button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="Option 4" />
+            android:text="Option 4"
+            android:freezesText="true"/>
     </RadioGroup>
 
     <Button
@@ -121,6 +128,7 @@
         android:background="@drawable/button_draw"
         android:backgroundTint="#752dc13c"
         android:text="Confirm"
+        android:freezesText="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

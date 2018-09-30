@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -16,12 +17,19 @@ import com.curiousca.statecapitals.DataClasses.Question;
 import com.curiousca.statecapitals.DataClasses.QuizDbHelper;
 import com.curiousca.statecapitals.R;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.Locale;
 
 public class QuizActivity extends AppCompatActivity {
 
     public static final String EXTRA_SCORE = "extraScore";
+    private static final long COUNTDOWN_IN_MILLIS = 30000;
+    public static final String KEY_SCORE = "keyScore";
+    public static final String KEY_QUESTION_COUNT = "keyQuestionCount";
+    public static final String KEY_MILLIS_LEFT = "keyMillisLeft";
+    public static final String KEY_ANSWERED = "keyAnswered";
+    public static final String KEY_QUESTION_LIST = "keyQuestionList";
 
     private TextView textViewQuestion;
     private TextView textViewScore;
@@ -35,8 +43,12 @@ public class QuizActivity extends AppCompatActivity {
     private Button buttonConfirmNext;
 
     private ColorStateList textColorDefaultRButton;
+    private ColorStateList textColorDefaultCountDown;
 
-    private List<Question> questionList;
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMillis;
+
+    private ArrayList<Question> questionList;
     private int questionCounter;
     private int questionCountTotal;
     private Question currentQuestion;
@@ -63,13 +75,31 @@ public class QuizActivity extends AppCompatActivity {
         buttonConfirmNext = findViewById(R.id.button_confirm_next);
 
         textColorDefaultRButton = rButton1.getTextColors();
+        textColorDefaultCountDown = textViewCountDown.getTextColors();
 
-        QuizDbHelper dbHelper = new QuizDbHelper(this);
-        questionList = dbHelper.getAllQuestions();
-        questionCountTotal = questionList.size();
-        Collections.shuffle(questionList);
+        if (savedInstanceState == null) {
+            QuizDbHelper dbHelper = new QuizDbHelper(this);
+            questionList = dbHelper.getAllQuestions();
+            questionCountTotal = questionList.size();
+            Collections.shuffle(questionList);
 
-        showNextQuestion();
+            showNextQuestion();
+        }else {
+            questionList = savedInstanceState.getParcelableArrayList(KEY_QUESTION_LIST);
+            questionCountTotal = questionList.size();
+            questionCounter = savedInstanceState.getInt(KEY_QUESTION_COUNT);
+            currentQuestion = questionList.get(questionCounter -1);
+            score = savedInstanceState.getInt(KEY_SCORE);
+            timeLeftInMillis = savedInstanceState.getLong(KEY_MILLIS_LEFT);
+            answered = savedInstanceState.getBoolean(KEY_ANSWERED);
+
+            if (! answered){
+                startCountDown();
+            }else {
+                updateCountDownText();
+                showSolution();
+            }
+        }
 
         buttonConfirmNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,21 +140,71 @@ public class QuizActivity extends AppCompatActivity {
             questionCounter ++;
             textViewQuestionCount.setText("Question: " + questionCounter + "/" + questionCountTotal);
             answered = false;
-            buttonConfirmNext.setBackgroundColor(Color.GREEN);
+            //buttonConfirmNext.setBackgroundColor(Color.BLUE);
             buttonConfirmNext.setText("Confirm!");
+
+            timeLeftInMillis = COUNTDOWN_IN_MILLIS;
+            startCountDown();
         }else {
             finishQuiz();
+        }
+    }
+
+    private void startCountDown(){
+        countDownTimer = new CountDownTimer(timeLeftInMillis + 100, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                timeLeftInMillis = 0;
+                updateCountDownText();
+                checkAnswer();
+            }
+        }.start();
+    }
+
+    private void updateCountDownText(){
+        int minutes = (int) ((timeLeftInMillis / 1000) / 60);
+        int seconds = (int) ((timeLeftInMillis / 1000) % 60);
+
+        String timeFormated = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        textViewCountDown.setText(timeFormated);
+        if (timeLeftInMillis < 30000){
+            textViewCountDown.setTextColor(Color.GREEN);
+
+            if (timeLeftInMillis < 20000){
+                textViewCountDown.setTextColor(Color.YELLOW);
+
+                if (timeLeftInMillis < 10000){
+                    textViewCountDown.setTextColor(Color.RED);
+                }
+            }
+        }else {
+            textViewCountDown.setTextColor(textColorDefaultCountDown);
         }
     }
 
     private void checkAnswer(){
         answered = true;
 
+        countDownTimer.cancel();
+
         RadioButton rButtonSelected = findViewById(radioGroup.getCheckedRadioButtonId());
         int answerNr = radioGroup.indexOfChild(rButtonSelected) +1;
 
         if (answerNr == currentQuestion.getAnswerNr()){
-            score ++;
+            if (timeLeftInMillis < 30000 && timeLeftInMillis > 20000){
+                score = score + 5;
+            }else if (timeLeftInMillis < 20000 && timeLeftInMillis > 10000){
+                score = score +3;
+            }else {
+                score ++;
+            }
+
             textViewScore.setText("Score: " + score);
         }
 
@@ -184,5 +264,24 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         backPressedTime = System.currentTimeMillis();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (countDownTimer != null){
+            countDownTimer.cancel();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(KEY_SCORE, score);
+        outState.putInt(KEY_QUESTION_COUNT, questionCounter);
+        outState.putLong(KEY_MILLIS_LEFT, timeLeftInMillis);
+        outState.putBoolean(KEY_ANSWERED, answered);
+        outState.putParcelableArrayList(KEY_QUESTION_LIST, questionList);
     }
 }

@@ -7,9 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import static com.curiousca.statecapitals.DataClasses.QuizContract.*;
+import static com.curiousca.statecapitals.DataClasses.QuizContract.QuestionsTable;
 
 public class QuizDbHelper extends SQLiteOpenHelper {
 
@@ -76,9 +75,9 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         database.insert(QuestionsTable.TABLE_NAME, null, contentValues);
     }
 
-    public List<Question> getAllQuestions(){
+    public ArrayList<Question> getAllQuestions(){
 
-        List<Question> questionList = new ArrayList<>();
+        ArrayList<Question> questionList = new ArrayList<>();
         database = getReadableDatabase();
         Cursor cursor = database.rawQuery("SELECT * FROM " + QuestionsTable.TABLE_NAME, null);
 
