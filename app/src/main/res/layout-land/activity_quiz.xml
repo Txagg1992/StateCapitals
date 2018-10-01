@@ -27,12 +27,27 @@
         android:id="@+id/text_view_question_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="248dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:freezesText="true"
         android:text="Question 1/ x"
         android:textColor="#ffffff"
+        app:layout_constraintStart_toEndOf="@+id/text_view_score"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_view_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:freezesText="true"
+        android:text="Category: "
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toStartOf="@+id/text_view_countdown"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toEndOf="@+id/text_view_question_count"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -50,8 +65,8 @@
 
     <TextView
         android:id="@+id/text_view_question"
-        android:layout_width="363dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"

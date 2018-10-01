@@ -34,6 +34,7 @@ public class QuizActivity extends AppCompatActivity {
     private TextView textViewQuestion;
     private TextView textViewScore;
     private TextView textViewQuestionCount;
+    private TextView textViewCategory;
     private TextView textViewCountDown;
     private RadioGroup radioGroup;
     private RadioButton rButton1;
@@ -66,6 +67,7 @@ public class QuizActivity extends AppCompatActivity {
         textViewQuestion = findViewById(R.id.text_view_question);
         textViewScore = findViewById(R.id.text_view_score);
         textViewQuestionCount = findViewById(R.id.text_view_question_count);
+        textViewCategory = findViewById(R.id.text_view_category);
         textViewCountDown = findViewById(R.id.text_view_countdown);
         radioGroup = findViewById(R.id.radio_group);
         rButton1 = findViewById(R.id.radio_button1);
@@ -77,9 +79,15 @@ public class QuizActivity extends AppCompatActivity {
         textColorDefaultRButton = rButton1.getTextColors();
         textColorDefaultCountDown = textViewCountDown.getTextColors();
 
+        Intent intent = getIntent();
+        int categoryID = intent.getIntExtra(MainActivity.EXTRA_CATEGORY_ID, 0);
+        String categoryName = intent.getStringExtra(MainActivity.EXTRA_CATEGORY_NAME);
+
+        textViewCategory.setText("Category: " + categoryName);
+
         if (savedInstanceState == null) {
-            QuizDbHelper dbHelper = new QuizDbHelper(this);
-            questionList = dbHelper.getAllQuestions();
+            QuizDbHelper dbHelper = QuizDbHelper.getInstance(this);
+            questionList = dbHelper.getQuestions(categoryID);
             questionCountTotal = questionList.size();
             Collections.shuffle(questionList);
 
