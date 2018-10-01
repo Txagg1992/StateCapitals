@@ -45,17 +45,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--<ImageView-->
-    <!--android:id="@+id/image_view_question"-->
-    <!--android:layout_width="261dp"-->
-    <!--android:layout_height="141dp"-->
-    <!--android:layout_marginTop="128dp"-->
-    <!--android:src="@drawable/american"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintHorizontal_bias="0.504"-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="parent" />-->
-
     <TextView
         android:id="@+id/text_view_question"
         android:layout_width="match_parent"

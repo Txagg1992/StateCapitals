@@ -7,6 +7,11 @@ public final class QuizContract {
     public QuizContract() {
     }
 
+    public static class CategoriesTable implements BaseColumns{
+        public static final String TABLE_NAME =  "quiz_categories";
+        public static final String COLUMN_REGION = "region";
+    }
+
     public static class QuestionsTable implements BaseColumns{
         public static final String TABLE_NAME = "quiz_questions";
         public static final String COLUMN_QUESTION = "question";
@@ -15,5 +20,6 @@ public final class QuizContract {
         public static final String COLUMN_OPTION3 = "option3";
         public static final String COLUMN_OPTION4 = "option4";
         public static final String COLUMN_ANSWER_NR = "answer_nr";
+        public static final String COLUMN_CATEGORY_ID = "category_id";
     }
 }
