@@ -16,7 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.QuizActivity"></activity>
+        <activity android:name=".Activities.QuizActivity" />
+        <activity
+            android:name=".Activities.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.curiousca.statecapitals.Activities.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

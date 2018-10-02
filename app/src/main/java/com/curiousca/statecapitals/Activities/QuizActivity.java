@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -20,6 +21,8 @@ import com.curiousca.statecapitals.R;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
+
+import es.dmoral.toasty.Toasty;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -212,10 +215,11 @@ public class QuizActivity extends AppCompatActivity {
             }else {
                 score ++;
             }
-
             textViewScore.setText("Score: " + score);
+            correctToast();
+        }else {
+            inCorrectToast();
         }
-
         showSolution();
     }
 
@@ -253,6 +257,17 @@ public class QuizActivity extends AppCompatActivity {
         }else {
             buttonConfirmNext.setText("Finish");
         }
+    }
+
+    private void correctToast(){
+        Toast toast2 = Toasty.success(this, "Awesome! Answer is correct", Toast.LENGTH_SHORT);
+        toast2.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+        toast2.show();
+    }
+    private void inCorrectToast(){
+        Toast toast2 = Toasty.error(this, "Answer incorrect", Toast.LENGTH_SHORT);
+        toast2.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+        toast2.show();
     }
 
     private void finishQuiz(){

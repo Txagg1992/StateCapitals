@@ -98,6 +98,8 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
     private void fillQuestionsTable(){
+
+        //Start US state capitals
         Question q1 = new Question("The capital of North Carolina is...?", "Wilmington",
                 "Charlotte", "Asheville","Raleigh", 4, Category.US);
         addQuestion(q1);
@@ -116,24 +118,53 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q6 = new Question("Nevada's capital is which city?", "Las Vegas",
                 "Carson City", "Reno","Fallon", 2, Category.US);
         addQuestion(q6);
-        Question q7 = new Question("Canada's capital is which city?", "Winnipeg",
-                "Ottawa", "Toronto","Montreal", 2, Category.AMERICAS);
+        Question q7 = new Question("The capital of North Carolina is...?", "Wilmington",
+                "Charlotte", "Asheville","Raleigh", 4, Category.US);
         addQuestion(q7);
-        Question q8 = new Question("Frances's capital is which city?", "Paris",
-                "Marseille", "Nice","Toulouse", 1, Category.EUROPE);
+        Question q8 = new Question("Michigan's capital is...?", "Lansing",
+                "Grand Rapids", "Kalamazoo","Detroit", 1, Category.US);
         addQuestion(q8);
-        Question q9 = new Question("Libya's capital is which city?", "Tripoli",
-                "Misrata", "Benghazi","Awbari", 1, Category.AFRICA);
+        Question q9 = new Question("The capital of North Dakota is...?", "Fargo",
+                "Minot", "Bismark","Williston", 3, Category.US);
         addQuestion(q9);
-        Question q10 = new Question("Burma's capital is which city?", "Mandalay",
-                "Sittwe", "Naypyitaw","Yangon", 3, Category.ASIA_AUSTRALIA);
+        Question q10 = new Question("Texas' state capital is:", "San Antonio",
+                "Houston", "Dallas","Austin", 4, Category.US);
         addQuestion(q10);
-        Question q11 = new Question("Australia's capital is which city?", "Sydney",
-                "Brisbane", "Canberra","Perth", 3, Category.ASIA_AUSTRALIA);
+        Question q11 = new Question("Georgia's capital is which city?", "Savanna",
+                "Atlanta", "Perry","Augusta", 2, Category.US);
         addQuestion(q11);
-        Question q12 = new Question("The capital of the United Arab Emirates is?", "Dubai",
-                "Al Ain", "Sharjah","Abu Dhabi", 4, Category.MIDDLE_EAST);
+        Question q12 = new Question("Nevada's capital is which city?", "Las Vegas",
+                "Carson City", "Reno","Fallon", 2, Category.US);
         addQuestion(q12);
+
+        //
+        //Start Americas country capitals
+        Question q57 = new Question("Canada's capital is which city?", "Winnipeg",
+                "Ottawa", "Toronto","Montreal", 2, Category.AMERICAS);
+        addQuestion(q57);
+
+        //Start Europe country capitals
+        Question q88 = new Question("Frances's capital is which city?", "Paris",
+                "Marseille", "Nice","Toulouse", 1, Category.EUROPE);
+        addQuestion(q88);
+
+        //StartAfrica country capitals
+        Question q109 = new Question("Libya's capital is which city?", "Tripoli",
+                "Misrata", "Benghazi","Awbari", 1, Category.AFRICA);
+        addQuestion(q109);
+
+        //Start Asia Capitals
+        Question q210 = new Question("Burma's capital is which city?", "Mandalay",
+                "Sittwe", "Naypyitaw","Yangon", 3, Category.ASIA_AUSTRALIA);
+        addQuestion(q210);
+        Question q211 = new Question("Australia's capital is which city?", "Sydney",
+                "Brisbane", "Canberra","Perth", 3, Category.ASIA_AUSTRALIA);
+        addQuestion(q211);
+
+        //Start middle East capitals
+        Question q312 = new Question("The capital of the United Arab Emirates is?", "Dubai",
+                "Al Ain", "Sharjah","Abu Dhabi", 4, Category.MIDDLE_EAST);
+        addQuestion(q312);
 
     }
 
