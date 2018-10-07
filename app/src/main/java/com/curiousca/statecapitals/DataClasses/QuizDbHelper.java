@@ -107,7 +107,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 "Grand Rapids", "Kalamazoo","Detroit", 1, Category.US);
         addQuestion(q2);
         Question q3 = new Question("The capital of North Dakota is...?", "Fargo",
-                "Minot", "Bismark","Williston", 3, Category.US);
+                "Minot", "Bismarck","Williston", 3, Category.US);
         addQuestion(q3);
         Question q4 = new Question("Texas' state capital is:", "San Antonio",
                 "Houston", "Dallas","Austin", 4, Category.US);
@@ -118,24 +118,139 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q6 = new Question("Nevada's capital is which city?", "Las Vegas",
                 "Carson City", "Reno","Fallon", 2, Category.US);
         addQuestion(q6);
-        Question q7 = new Question("The capital of North Carolina is...?", "Wilmington",
-                "Charlotte", "Asheville","Raleigh", 4, Category.US);
+        Question q7 = new Question("The capital of Washington is...?", "Spokane",
+                "Tacoma", "Olympia","Seattle", 3, Category.US);
         addQuestion(q7);
-        Question q8 = new Question("Michigan's capital is...?", "Lansing",
-                "Grand Rapids", "Kalamazoo","Detroit", 1, Category.US);
+        Question q8 = new Question("Oregon's capital is...?", "Salem",
+                "Eugene", "Portland","Medford", 1, Category.US);
         addQuestion(q8);
-        Question q9 = new Question("The capital of North Dakota is...?", "Fargo",
-                "Minot", "Bismark","Williston", 3, Category.US);
+        Question q9 = new Question("The capital of Idaho is...?", "Boise",
+                "Idaho Falls", "Twin Falls","Pocatello", 1, Category.US);
         addQuestion(q9);
-        Question q10 = new Question("Texas' state capital is:", "San Antonio",
-                "Houston", "Dallas","Austin", 4, Category.US);
+        Question q10 = new Question("Montana's state capital is:", "Helena",
+                "Missoula", "Butte","Billings", 1, Category.US);
         addQuestion(q10);
-        Question q11 = new Question("Georgia's capital is which city?", "Savanna",
-                "Atlanta", "Perry","Augusta", 2, Category.US);
+        Question q11 = new Question("Wyoming's capital is which city?", "Casper",
+                "Cheyenne", "Rock Springs","Gillette", 2, Category.US);
         addQuestion(q11);
-        Question q12 = new Question("Nevada's capital is which city?", "Las Vegas",
-                "Carson City", "Reno","Fallon", 2, Category.US);
+        Question q12 = new Question("California's capital is which city?", "Los Angeles",
+                "Sacramento", "Redding","San Francisco", 2, Category.US);
         addQuestion(q12);
+        Question q13 = new Question("The capital of Utah is...?", "Provo",
+                "Ogden", "Salt Lake City","St. George", 3, Category.US);
+        addQuestion(q13);
+        Question q14 = new Question("Colorado's state capital is:", "Colorado Springs",
+                "Fort Collins", "Denver","Grand Junction", 3, Category.US);
+        addQuestion(q14);
+        Question q15 = new Question("Arizona's capital is which city?", "Scottsdale",
+                "Flagstaff", "Tucson","Phoenix", 4, Category.US);
+        addQuestion(q15);
+        Question q16 = new Question("New Mexico's capital is which city?", "Albuquerque",
+                "Las Cruces", "Roswell","Santa Fe", 4, Category.US);
+        addQuestion(q16);
+        Question q17 = new Question("The capital of Oklahoma is...?", "Oklahoma City",
+                "Tulsa", "Norman","Lawton", 1, Category.US);
+        addQuestion(q17);
+        Question q18 = new Question("Kansas' capital is...?", "Topeka",
+                "Kansas City", "Dodge City","Wichita", 1, Category.US);
+        addQuestion(q18);
+        Question q19 = new Question("The capital of Nebraska is...?", "Omaha",
+                "Lincoln", "Ogallala","Grand Island", 2, Category.US);
+        addQuestion(q19);
+        Question q20 = new Question("South Dakota's state capital is:", "Sioux Falls",
+                "Pierre", "Stugis","Yankton", 2, Category.US);
+        addQuestion(q20);
+        Question q21 = new Question("Minnesota's capital is which city?", "St. Cloud",
+                "Duluth", "St. Paul","Minneapolis", 3, Category.US);
+        addQuestion(q21);
+        Question q22 = new Question("Wisconsin's capital is which city?", "Green Bay",
+                "Milwaukee", "Madison","Racine", 3, Category.US);
+        addQuestion(q22);
+        Question q23 = new Question("The capital of Iowa is...?", "Iowa City",
+                "Sioux City", "Waterloo","Des Moines", 4, Category.US);
+        addQuestion(q23);
+        Question q24 = new Question("Missouri's capital is...?", "Columbia",
+                "St. Louis", "Branson","Jefferson City", 4, Category.US);
+        addQuestion(q24);
+        Question q25 = new Question("The capital of Illinois is...?", "Springfield",
+                "Metropolis", "Chicago","Peoria", 1, Category.US);
+        addQuestion(q25);
+        Question q26 = new Question("Arkansas's state capital is:", "Little Rock",
+                "Fayetteville", "Jonesboro","Hot Springs", 1, Category.US);
+        addQuestion(q26);
+        Question q27 = new Question("Louisiana's capital is which city?", "Shreveport",
+                "Baton Rouge", "New Orleans","Monroe", 2, Category.US);
+        addQuestion(q27);
+        Question q28 = new Question("Mississippi's capital is which city?", "Starkville",
+                "Jackson", "Hattiesburg","Biloxi", 2, Category.US);
+        addQuestion(q28);
+        Question q29 = new Question("The capital of Alabama is...?", "Mobile",
+                "Birmingham", "Montgomery","Dothan", 3, Category.US);
+        addQuestion(q29);
+        Question q30 = new Question("Tennessee's state capital is:", "Memphis",
+                "Chattanooga", "Nashville","Knoxville", 3, Category.US);
+        addQuestion(q30);
+        Question q31 = new Question("Kentucky's capital is which city?", "Bowling Green",
+                "Lexington", "Louisville","Frankfort", 4, Category.US);
+        addQuestion(q31);
+        Question q32 = new Question("Indiana's capital is which city?", "Fort Wayne",
+                "South Bend", "Muncie","Indianapolis", 4, Category.US);
+        addQuestion(q32);
+        Question q33 = new Question("The capital of Ohio is...?", "Columbus",
+                "Toledo", "Cleveland","Cincinnati", 1, Category.US);
+        addQuestion(q33);
+        Question q34 = new Question("Pennsylvania's state capital is:", "Harrisburg",
+                "Pittsburgh", "Gettysburg","Philadelphia", 1, Category.US);
+        addQuestion(q34);
+        Question q35 = new Question("New York's capital is which city?", "Syracuse",
+                "Albany", "Rochester","New York City", 2, Category.US);
+        addQuestion(q35);
+        Question q36 = new Question("West Virginia's capital is which city?", "Morgantown",
+                "Charleston", "Wheeling","Huntington", 2, Category.US);
+        addQuestion(q36);
+        Question q37 = new Question("The capital of Virginia is...?", "Charlottesville",
+                "Roanoke", "Richmond","Norfolk", 3, Category.US);
+        addQuestion(q37);
+        Question q38 = new Question("Delaware's state capital is:", "Smyrna",
+                "Wilmington", "Dover","Camden", 3, Category.US);
+        addQuestion(q38);
+        Question q39 = new Question("New Jersey's capital is which city?", "Bridgewater",
+                "Edison", "Atlantic City","Trenton", 4, Category.US);
+        addQuestion(q39);
+        Question q40 = new Question("South Carolina's capital is which city?", "Charleston",
+                "Florence", "Greenville","Columbia", 4, Category.US);
+        addQuestion(q40);
+        Question q41 = new Question("The capital of Florida is...?", "Tallahassee",
+                "Miami", "Orlando","Pensacola", 1, Category.US);
+        addQuestion(q41);
+        Question q42 = new Question("Connecticut's state capital is:", "Hartford",
+                "New Haven", "Bridgeport","Waterbury", 1, Category.US);
+        addQuestion(q42);
+        Question q43 = new Question(" Massachusetts' capital is which city?", "Springfield",
+                "Boston", "Plymouth","Worcester", 2, Category.US);
+        addQuestion(q43);
+        Question q44 = new Question("Vermont's capital is which city?", "Waterbury",
+                "Montpelier", "Woodstock","Rutland", 2, Category.US);
+        addQuestion(q44);
+        Question q45 = new Question("The capital of New Hampshire is...?", "Manchester",
+                "Portsmouth", "Concord","Nashua", 3, Category.US);
+        addQuestion(q45);
+        Question q46 = new Question("Maine's state capital is:", "Bangor",
+                "Portland", "Augusta","Brunswick", 3, Category.US);
+        addQuestion(q46);
+        Question q47 = new Question(" Hawaii's capital is which city?", "Kaneohe",
+                "O'ahu", "Koloa","Honolulu", 4, Category.US);
+        addQuestion(q47);
+        Question q48 = new Question("Alaska's capital is which city?", "Anchorage",
+                "Kodiak", "Fairbanks","Juneau", 4, Category.US);
+        addQuestion(q48);
+        Question q49 = new Question("Maryland's state capital is:", "Annapolis",
+                "Baltimore", "Alexandria","Washington DC", 1, Category.US);
+        addQuestion(q49);
+        Question q50 = new Question(" Rhode Island' capital is which city?", "Pawtucket",
+                "Providence", "Warwick","Narragansett", 2, Category.US);
+        addQuestion(q50);
+
 
         //
         //Start Americas country capitals

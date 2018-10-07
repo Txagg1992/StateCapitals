@@ -18,6 +18,7 @@
     <string name="category">Category: </string>
     <string name="_00_30">00:30</string>
     <string name="confirm">Confirm</string>
+    <string name="reset_high_score">Reset High score</string>
 
 
 </resources>

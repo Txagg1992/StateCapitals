@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(this, AboutActivity.class);
                 this.startActivity(i);
                 break;
+            case R.id.reset:
+                highScore = 0;
+                textViewHighScore.setText("High Score: " + highScore);
         }
         return super.onOptionsItemSelected(item);
     }
