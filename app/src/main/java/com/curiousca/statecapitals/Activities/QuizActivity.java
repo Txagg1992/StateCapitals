@@ -233,22 +233,22 @@ public class QuizActivity extends AppCompatActivity {
             case 1:
                 rButton1.setTextColor(Color.GREEN);
                 rButton1.setTextSize(36);
-                textViewQuestion.setText(currentQuestion.getOption1() + " is correct.");
+                textViewQuestion.setText(currentQuestion.getQuestion() + "\n" + currentQuestion.getOption1() + " is correct.");
                 break;
             case 2:
                 rButton2.setTextColor(Color.GREEN);
                 rButton2.setTextSize(36);
-                textViewQuestion.setText(currentQuestion.getOption2() + " is correct.");
+                textViewQuestion.setText(currentQuestion.getQuestion() + "\n" + currentQuestion.getOption2() + " is correct.");
                 break;
             case 3:
                 rButton3.setTextColor(Color.GREEN);
                 rButton3.setTextSize(36);
-                textViewQuestion.setText(currentQuestion.getOption3() + " is correct.");
+                textViewQuestion.setText(currentQuestion.getQuestion() + "\n" + currentQuestion.getOption3() + " is correct.");
                 break;
             case 4:
                 rButton4.setTextColor(Color.GREEN);
                 rButton4.setTextSize(36);
-                textViewQuestion.setText(currentQuestion.getOption4() + " is correct.");
+                textViewQuestion.setText(currentQuestion.getQuestion() + "\n" + currentQuestion.getOption4() + " is correct.");
                 break;
         }
 
