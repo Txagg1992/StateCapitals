@@ -125,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
         List<Category> categories = dbHelper.getAllCategories();
 
         ArrayAdapter<Category> adapterCategory = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, categories);
-        adapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                android.R.layout.simple_selectable_list_item, categories);
+        adapterCategory.setDropDownViewResource(android.R.layout.simple_list_item_checked);
         spinnerCategory.setAdapter(adapterCategory);
     }
 
